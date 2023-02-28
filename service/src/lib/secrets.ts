@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from 'fs';
 
 /**
  * Helper function to load environment variables in local
@@ -6,7 +6,7 @@ import fs from "fs";
  * 
  * @author Maxime Nadeau
  */
-export default function getSecret (secretName) {
+export default function getSecret (secretName: string): string | undefined {
   const env = process.env.NODE_ENV;
   
   if (env === "development") {

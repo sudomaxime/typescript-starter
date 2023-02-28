@@ -1,7 +1,7 @@
 import type {Request, Response} from 'express';
 
 export function handleIndex (req: Request, res: Response) {
-  res.send({ok: true})
+  res.send({ok: true});
 }
 
 /**

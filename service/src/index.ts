@@ -3,7 +3,7 @@ import express from 'express';
 import api from './api';
 dotenv.config();
 
-(void async function(){
+(void async function() {
   const port = process.env.PORT! || 3030;
   /**
    * Ajoute tes connections içi, par exemple une connection à une DB. le tout
@@ -17,4 +17,4 @@ dotenv.config();
   service.listen(port, () => 
     console.log(`[NODE SERVICE] LISTENING ON ${port}`)
   )
-}())
+}());
