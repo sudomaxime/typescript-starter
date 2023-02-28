@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:  
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+      target: dev
+    environment: 
+      DOMAIN: ${DOMAIN}
+      PORT: ${PORT}
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/dev:/etc/nginx/templates
+    depends_on:
+      - service
+
+  service:
+    command: /node/node_modules/.bin/nodemon
+    environment: 
+      NODE_ENV: ${ENVIRONMENT}
+      PORT: ${PORT}
+    build:
+      context: ./service
+      dockerfile: Dockerfile
+    volumes:
+      - ./service:/node/app
+      - /node/app/node_modules
+    ports:
+      - ${PORT}:${PORT}
+      - 9229:9229
