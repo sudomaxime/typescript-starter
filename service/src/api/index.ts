@@ -4,7 +4,7 @@ import * as errorMiddlewares from './middlewares/errors';
 const router = Router();
 
 router.get('/', homeController.handleIndex);
-router.use(errorMiddlewares.notFoundHandler)
+router.use(errorMiddlewares.notFoundHandler);
 router.use(errorMiddlewares.errorHandler);
 
 export default router;
